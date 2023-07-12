@@ -1,0 +1,9 @@
+# Install xdg-portals and a front end for it
+
+# Add amd_pstate=active and no watchdog to GRUB_CMDLINE_LINUX_DEFAULT
+
+# Follow instructions here # https://wiki.archlinux.org/title/Gaming#Improving_performance
+
+# Follow https://wiki.archlinux.org/title/Hardware_video_acceleration and install libva-nvidia-driver
+
+# Enable drm and configure kernel module paramaters using https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Kernel_module_parameters
