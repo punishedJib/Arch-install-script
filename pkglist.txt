@@ -83,7 +83,7 @@ Rxvt-unicode
 solaar
 strawberry
 stremio-beta
-sxiv
+nsxiv
 syncthing
 telegram-desktop
 thermald
