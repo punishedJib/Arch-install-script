@@ -3,17 +3,7 @@
 
 #Make the boot partition 1gb
 
-#Install the gtk themes and icons needed (check installed packages on local installation)
-
 #Maybe setup fonts, or just install a program that lets you do it through a gui
-
-#setup pipewire and wireplumber
-
-#Enable custom services
-
-# Get a list of explicitly installed programs and sift through it to get useful programs
-
-# Write a list of packages to be queried instead of manually writing them in the scripts
 
 # Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
 
