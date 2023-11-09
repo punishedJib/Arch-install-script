@@ -13,6 +13,8 @@
 
 # Get a list of explicitly installed programs and sift through it to get useful programs
 
+# Write a list of packages to be queried instead of manually writing them in the scripts
+
 # Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
 
 # Write python script to remove duplicates from playlist (tfg)
@@ -20,7 +22,13 @@
 # Learn what pacreport can do to track package files and help clean them up
 # Also take a look at aconfmgr if needed
 
-# Rund xdg-ninja in vm to see which enviroment virable I should set
+# Rund xdg-ninja in vm to see which enviroment variables I should set
+
+# Run arch-audit and see what security problems could be fixed without compromising functionality and performance
+
+# What are gnome-icon-theme and gnome-themes-extra needed for?
+
+# Make a aur pkglist file
 
 ---### This is the first install script ###---
 
@@ -30,7 +38,7 @@ reflector --latest 200 --protocol http,https --sort rate --save /etc/pacman.d/mi
 
 # Install arch and some useful programs
 
-pacstrap -k /mnt base linux-zen linux-firmware base-devel networkmanager vim nvim man-db man-pages texinfo grub efibootmgr amd-ucode reflector git
+pacstrap -k /mnt base linux-zen linux-zen-headers linux-firmware base-devel networkmanager vim nvim man-db man-pages texinfo grub efibootmgr amd-ucode reflector git
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -80,7 +88,7 @@ useradd -m -G wheel,plugdev,gamemode,video,audio jebus
 
 # Install everything needed
 
-pacman -S sudo ufw xorg-server xorg-apps nvidia nvidia-utils lib32-nvidia-utils nvidia-settings nvidia-dkms awesome xdg-user-dirs gamemode lib32-gamemode cpupower pipewire lib32-pipewire wireplumber qpwgraph pipewire-audio pipewire-alsa pipewire-pulse noise-suppression-for-voice dnscrypt-proxy chrony mlocate noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-fira-code wqy-zenhei bash-completition colorgcc steam wine-staging wine-gecko wine-mono lutris profile-sync-daemon profile-cleaner xdg-desktop-portal xdg-desktop-portal-gtk
+pacman -S --needed - < pkglist2.txt
 
 # Start ufw with a basic config
 
@@ -235,4 +243,12 @@ systemctl --user enable --now wireplumber.service
 
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
+# Install icons for arc
 
+paru -S moka-icon-theme-git
+
+# Install polychromatic
+
+paru -S polychromatic
+
+paru -S tenacity-git ungoogled-chromium-bin

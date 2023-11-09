@@ -1,0 +1,10 @@
+ttf-office-2007-fonts
+ttf-win7-fonts
+ttf-ms-win8
+ttf-ms-win10
+ttf-ms-win11
+ananicy-cpp-git
+moka-icon-theme-git
+polychromatic
+tenacity-git
+ungoogled-chromium-bin
