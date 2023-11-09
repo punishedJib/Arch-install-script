@@ -57,3 +57,8 @@ systemctl --user enable --now wireplumber.service
 # Setup bash git prompt
 
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+# Enable cleanup units
+systemctl --user enable --now cleanup.timer
+systemctl --user enable --now profile-cleaner.service
+systemctl --user enable --now orphan-remover.service
