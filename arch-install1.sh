@@ -1,63 +1,4 @@
 #!/bin/bash
-#MAYBE # Add amd_pstate=active and no watchdog to GRUB_CMDLINE_LINUX_DEFAULT
-
-#Make the boot partition 1gb
-
-#Maybe setup fonts, or just install a program that lets you do it through a gui
-
-# Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
-
-# Write python script to remove duplicates from playlist (tfg)
-
-# Learn what pacreport can do to track package files and help clean them up
-# Also take a look at aconfmgr if needed
-
-# Rund xdg-ninja in vm to see which enviroment variables I should set
-
-# Run arch-audit and see what security problems could be fixed without compromising functionality and performance
-
-# What are gnome-icon-theme and gnome-themes-extra needed for?
-
----### This is the first install script ###---
-
-# Get up to date arch mirrors
-
-reflector --latest 200 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist
-
-# Install arch and some useful programs
-
-pacstrap -k /mnt base linux-zen linux-zen-headers linux-firmware base-devel networkmanager vim nvim man-db man-pages texinfo grub efibootmgr amd-ucode reflector git
-
-genfstab -U /mnt >> /mnt/etc/fstab
-
-arch-chroot /mnt
-
-ln -sf /usr/share/zoneifno/Europe/Zurich /etc/localtime
-
-hwclock --systohc
-
-sed -i '171s/^.//' /etc/locale.gen
-
-locale-gen
-
-echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-
-echo 'jebus-desktop' >> /etc/hostname
-
-systemctl start NetworkManager.service
-systemctl enable NetworkManager.service
-
-passwd stefan98
-
-# Install grub
-
-grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
-
-grub-mkconfig -i /boot/grub/grub.cfg
-
----### END ###---
-
----### Second install script ###---
 
 # Setup reflector service to have always uptodate arch mirrors
 
@@ -170,5 +111,5 @@ echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' > /etc/tmpfiles.d/consisten
 
 # Run third part of the script as jebus to make things easier
 
-chown /home/jebus/arch-install-script/part3.sh
+chown jebus /home/jebus/arch-install-script/part3.sh
 su -c "bash /home/jebus/arch-install-script/part3.sh" -s bash jebus
