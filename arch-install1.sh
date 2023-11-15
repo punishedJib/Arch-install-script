@@ -36,7 +36,7 @@ ufw enable
 
 # Add wheel group to no passwd sudo
 
-sed -i '111s/^./%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+sed -i '111s/*./%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
