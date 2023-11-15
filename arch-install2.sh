@@ -65,3 +65,11 @@ git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt -
 systemctl --user enable --now cleanup.timer
 systemctl --user enable --now profile-cleaner.service
 systemctl --user enable --now orphan-remover.service
+
+#Move some files around to clean the /home/
+
+mkdir .config/git
+mv .gitconfig .config/git/
+
+mkdir .config/pulse
+mv .pulse-cookie .config/pulse
