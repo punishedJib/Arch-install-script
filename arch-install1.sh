@@ -117,5 +117,8 @@ echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' >> /etc/tmpfiles.d/consiste
 
 # Run third part of the script as jebus to make things easier
 
-chown jebus /home/jebus/arch-install-script/part3.sh
-su -c "bash /home/jebus/arch-install-script/arch-install2.sh" -s bash jebus
+chown jebus arch-install2.sh
+chmod +x arch-install2.sh
+mv arch-install2.sh /home/jebus/
+
+su -c "bash /home/arch-install2.sh" -s bash jebus
