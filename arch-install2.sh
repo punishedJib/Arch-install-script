@@ -3,6 +3,9 @@
 # Install Paru
 
 cd /home/jebus/ || exit
+
+xdg-user-dirs-update
+
 git clone https://aur.archlinux.org/paru.git
 cd paru || exit
 makepkg -si
