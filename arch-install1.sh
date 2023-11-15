@@ -119,5 +119,4 @@ echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' >> /etc/tmpfiles.d/consiste
 chown jebus arch-install2.sh
 chmod +x arch-install2.sh
 mv arch-install2.sh /home/jebus/
-
-su -c su -c 'XDG_RUNTIME_DIR="/run/user/$UID" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" "/home/jebus/arch-install2.sh"' -s /bin/bash jebus
+mv aurpkglist.txt /home/jebus/
