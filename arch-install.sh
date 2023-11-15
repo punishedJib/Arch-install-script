@@ -15,4 +15,5 @@ chmod +x arch-install-chroot.sh
 cp arch-install-chroot.sh /mnt || exit
 arch-chroot /mnt ./arch-install-chroot.sh
 
+umount -R /mnt
 reboot
