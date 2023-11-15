@@ -15,7 +15,7 @@ echo 'jebus-desktop' >> /etc/hostname
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 
-echo 'root:stefan98' | changepasswd
+echo 'stefan98' | passwd --stdin
 
 # Install grub
 
