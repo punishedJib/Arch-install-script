@@ -72,6 +72,7 @@ neofetch
 nvme-cli
 obs-studio
 openrazer-meta
+openrazer-daemon
 python-html5lib
 python-imagehash
 python-pip
@@ -79,7 +80,7 @@ python-pipx
 python-pyperclip
 qbittorrent
 ranger
-Rxvt-unicode
+rxvt-unicode
 solaar
 strawberry
 stremio-beta

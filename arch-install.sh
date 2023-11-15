@@ -1,5 +1,4 @@
 #!/bin/bash -v
-
 # Get up to date arch mirrors
 
 reflector --latest 5 --protocol https --sort rate --country Germany,France --save /etc/pacman.d/mirrorlist
@@ -15,5 +14,6 @@ chmod +x arch-install-chroot.sh
 cp arch-install-chroot.sh /mnt || exit
 arch-chroot /mnt ./arch-install-chroot.sh
 
+mv /Arch-install-script /mnt
 umount -R /mnt
 reboot

@@ -2,6 +2,7 @@
 
 # Setup reflector service to have always uptodate arch mirrors
 
+reflector --latest 5 --protocol https --sort rate --country Germany,France --save /etc/pacman.d/mirrorlist
 sed -i '27s/.*/--sort rate/' /etc/xdg/reflector/reflector.conf
 echo '--country Germany,France' >> /etc/xdg/reflector/reflector.conf
 systemctl enable reflector.timer
@@ -14,11 +15,12 @@ sed -i '93/s/.*/Include = /etc/pacman.d/mirrorlist/' /etc/pacman.conf
 
 # Add user and add it to some useful groups
 
+groupadd plugdev,gamemode
 useradd -m -G wheel,plugdev,gamemode,video,audio jebus
 
 # Install everything needed
 
-pacman -S --needed - < pkglist2.txt
+pacman -S --needed - < pkglist.txt
 
 # Start ufw with a basic config
 
@@ -39,9 +41,6 @@ sed -i '88s/^.//' /etc/sudoers
 echo 'auth optional pam_faildelay.so delay=4000000' >> /etc/pam.d/system-login
 echo 'PermitRootLogin no' >> /etc/ssh/sshd_config.d/20-deny_root.conf
 echo 'kernel.kexec_load_disabled = 1' >> /etc/sysctl.d/51-kexec-restrict.conf
-
-#I don't know what this is
-#sed -i '39s/^.//' /etc/sudoers
 
 # Mouse settings using libinput
 
@@ -113,4 +112,4 @@ echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' > /etc/tmpfiles.d/consisten
 # Run third part of the script as jebus to make things easier
 
 chown jebus /home/jebus/arch-install-script/part3.sh
-su -c "bash /home/jebus/arch-install-script/part3.sh" -s bash jebus
+su -c "bash /home/jebus/arch-install-script/arch-install2.sh" -s bash jebus
