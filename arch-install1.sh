@@ -34,9 +34,9 @@ ufw allow Deluge
 ufw limit ssh
 ufw enable
 
-# Add wheel group to no passwd sudo
+# Add wheel group to no passwd sudo using a file, can't find an elegant solution for using visudo and I can't be bothered right now
 
-sed -i '111s/*./%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/99_wheel
 
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
