@@ -6,5 +6,6 @@ ttf-ms-win11
 ananicy-cpp-git
 moka-icon-theme-git
 polychromatic
+stremio-beta
 tenacity-git
 ungoogled-chromium-bin

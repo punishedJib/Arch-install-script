@@ -9,13 +9,14 @@ systemctl enable reflector.timer
 systemctl start reflector.timer
 
 # Enable multi downloads in pacman and enable multilib repo
-sed -i '39/s/.*/ParallelDownloads = 5/' /etc/pacman.conf
-sed -i '92/s/.*/[multilib]/' /etc/pacman.conf
-sed -i '93/s/.*/Include = /etc/pacman.d/mirrorlist/' /etc/pacman.conf
+sed -i '39s/.*/ParallelDownloads = 5/' /etc/pacman.conf
+sed -i '93s/.*/[multilib]/' /etc/pacman.conf
+sed -i '94s/.*/Include = /etc/pacman.d/mirrorlist/' /etc/pacman.conf
 
 # Add user and add it to some useful groups
 
-groupadd plugdev,gamemode
+groupadd plugdev
+groupadd gamemode
 useradd -m -G wheel,plugdev,gamemode,video,audio jebus
 
 # Install everything needed

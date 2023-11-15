@@ -34,9 +34,10 @@ ttf-droid
 ttf-junicode
 gnu-free-fonts
 otf-latin-modern
-otf-latinmodern-mathp7zip
+otf-latinmodern-math
+p7zip
 wqy-zenhei
-bash-completition
+bash-completion
 colorgcc
 steam
 wine-staging
@@ -71,10 +72,8 @@ mpv
 neofetch
 nvme-cli
 obs-studio
-openrazer-meta
 openrazer-daemon
 python-html5lib
-python-imagehash
 python-pip
 python-pipx
 python-pyperclip
