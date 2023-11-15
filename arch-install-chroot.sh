@@ -15,10 +15,12 @@ echo 'jebus-desktop' >> /etc/hostname
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 
-passwd stefan98
+echo 'root:stefan98' | changepasswd
 
 # Install grub
 
 grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+exit
