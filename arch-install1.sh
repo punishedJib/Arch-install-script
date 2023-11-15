@@ -96,20 +96,20 @@ echo -e 'net.core.default_qdisc = cake\nnet.ipv4.tcp_congestion_control = bbr' >
 # Disable watchdog and change grub wallpaper
 
 sed -i '6s/.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nowatchdog tsc=reliable clocksource=tsc"/' /etc/default/grub
-sed -i '46s/.*/GRUB_BACKGROUND="/home/jebus/Pictures/Wallpapers/Pokemon_may_waterfall/1d920581-c76c-40f3-b340-9fa34e013c7c_maywaterfalldesktophd.png"/' /etc/default/grub
+sed -i '46s/.*/GRUB_BACKGROUND="'\/'home'\/'jebus'\/'Pictures'\/'Wallpapers'\/'Pokemon_may_waterfall'\/'1d920581-c76c-40f3-b340-9fa34e013c7c_maywaterfalldesktophd.png"'\/'' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable fstrim.timer
 
 # Kernel tweaks from arch/gaming
 
-echo '#    Path                  Mode UID  GID  Age Argument' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /proc/sys/vm/compaction_proactiveness - - - - 0' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /proc/sys/vm/min_free_kbytes - - - - 838860' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /proc/sys/vm/swappiness - - - - 10' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /sys/kernel/mm/lru_gen/enabled - - - - 5' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /proc/sys/vm/zone_reclaim_mode - - - - 0' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
-echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' > /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo '#    Path                  Mode UID  GID  Age Argument' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /proc/sys/vm/compaction_proactiveness - - - - 0' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /proc/sys/vm/min_free_kbytes - - - - 838860' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /proc/sys/vm/swappiness - - - - 10' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /sys/kernel/mm/lru_gen/enabled - - - - 5' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /proc/sys/vm/zone_reclaim_mode - - - - 0' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
+echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
 
 # Run third part of the script as jebus to make things easier
 
