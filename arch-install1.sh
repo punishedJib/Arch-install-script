@@ -100,7 +100,7 @@ echo -e 'net.core.default_qdisc = cake\nnet.ipv4.tcp_congestion_control = bbr' >
 # Disable watchdog and change grub wallpaper
 
 sed -i '6s/.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nowatchdog tsc=reliable clocksource=tsc"/' /etc/default/grub
-sed -i '46s/.*/GRUB_BACKGROUND="'\/'home'\/'jebus'\/'Pictures'\/'Wallpapers'\/'Pokemon_may_waterfall'\/'1d920581-c76c-40f3-b340-9fa34e013c7c_maywaterfalldesktophd.png"'\/'' /etc/default/grub
+sed -i '46s|.*|GRUB_BACKGROUND="/home/jebus/Pictures/Wallpapers/Pokemon_may_waterfall/1d920581-c76c-40f3-b340-9fa34e013c7c_maywaterfalldesktophd.png"|' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable fstrim.timer
