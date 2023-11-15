@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/bin/bash -v
 
 # Setup reflector service to have always uptodate arch mirrors
 
 sed -i '27s/.*/--sort rate/' /etc/xdg/reflector/reflector.conf
+echo '--country Germany,France' >> /etc/xdg/reflector/reflector.conf
 systemctl enable reflector.timer
 systemctl start reflector.timer
 
