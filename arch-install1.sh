@@ -18,6 +18,7 @@ sed -i "91s/.*/Include = \/etc\/pacman.d\/mirrorlist\/" /etc/pacman.conf
 groupadd plugdev
 groupadd gamemode
 useradd -m -G wheel,plugdev,gamemode,video,audio jebus
+passwd -d jebus
 
 # Install everything needed
 
