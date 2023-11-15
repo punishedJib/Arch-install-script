@@ -74,6 +74,7 @@ nvme-cli
 obs-studio
 openrazer-daemon
 python-html5lib
+python-imagehash
 python-pip
 python-pipx
 python-pyperclip
@@ -82,7 +83,6 @@ ranger
 rxvt-unicode
 solaar
 strawberry
-stremio-beta
 nsxiv
 syncthing
 telegram-desktop

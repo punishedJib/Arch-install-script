@@ -10,8 +10,8 @@ systemctl start reflector.timer
 
 # Enable multi downloads in pacman and enable multilib repo
 sed -i '37s/.*/ParallelDownloads = 5/' /etc/pacman.conf
-sed -i '93s/.*/[multilib]/' /etc/pacman.conf
-sed -i '94s/.*/Include = /etc/pacman.d/mirrorlist/' /etc/pacman.conf
+sed -i '90s/.*/[multilib]/' /etc/pacman.conf
+sed -i "91s/.*/Include = \/etc\/pacman.d\/mirrorlist\/" /etc/pacman.conf
 
 # Add user and add it to some useful groups
 
