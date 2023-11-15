@@ -58,7 +58,8 @@ echo -e 'options nvidia-drm modeset=1\noptions nvidia NVreg_UsePageAttributeTabl
 
 # Pacman hook to update initframs after each nvidia update
 
-echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\nTarget=linux-zen\n# Change the linux part above and in the Exec line if a different kernel is used\n\n[Action]\nDescription=Update NVIDIA module in initcpio/nDepends=mkinitcpio\nWhen=PostTransaction\nNeedsTargets\nExec=/bin/sh -c \'while read -r trg; do case \$trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P\'" > /etc/pacman.d/hooks/nvidia.hook
+mkdir /etc/pacman.d/hooks/
+echo -e "[Trigger]\nOperation=Install\nOperation=Upgrade\nOperation=Remove\nType=Package\nTarget=nvidia\nTarget=linux-zen\n# Change the linux part above and in the Exec line if a different kernel is used\n\n[Action]\nDescription=Update NVIDIA module in initcpio/nDepends=mkinitcpio\nWhen=PostTransaction\nNeedsTargets\nExec=/bin/sh -c while read -r trg; do case \$trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'" > /etc/pacman.d/hooks/nvidia.hook
 
 xdg-user-dirs-update
 
@@ -78,9 +79,12 @@ sed -i '30s/.*/server 0.europe.pool.ntp.org/' /etc/chrony.conf
 sed -i '31s/.*/server 1.europe.pool.ntp.org/' /etc/chrony.conf
 sed -i '32s/.*/server 2.europe.pool.ntp.org/' /etc/chrony.conf
 sed -i '33s/.*/server 3.europe.pool.ntp.org/' /etc/chrony.conf
+sed -i '123s/.^//' /etc/chrony.conf
+sed -i '295s/.^//' /etc/chrony.conf
+sed -i '317s/.*/! rtcsync/' /etc/chrony.conf
 mkdir /etc/sysconfig/
 echo "OPTIONS='-r -s'" > /etc/sysconfig/chronyd
-echo -e 'dumponexit\ndumpdir /var/lib/chrony\nrtcfile /var/lib/chrony/rtc' > /etc/chrony.conf
+echo -e 'dumponexit' >> /etc/chrony.conf
 systemctl enable chronyd.service
 systemctl start chronyd.service
 chronyc online
