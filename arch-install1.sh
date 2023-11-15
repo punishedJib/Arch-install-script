@@ -36,7 +36,7 @@ ufw enable
 
 # Add wheel group to no passwd sudo
 
-sed -i '88s/^./%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+sed -i '111s/^./%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
@@ -120,4 +120,4 @@ chown jebus arch-install2.sh
 chmod +x arch-install2.sh
 mv arch-install2.sh /home/jebus/
 
-su -c "/home/jebus/arch-install2.sh" -s /bin/bash jebus
+su -c su -c 'XDG_RUNTIME_DIR="/run/user/$UID" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" "/home/jebus/arch-install2.sh"' -s /bin/bash jebus
