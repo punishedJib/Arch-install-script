@@ -80,7 +80,7 @@ sed -i '32s/.*/server 2.europe.pool.ntp.org/' /etc/chrony.conf
 sed -i '33s/.*/server 3.europe.pool.ntp.org/' /etc/chrony.conf
 mkdir /etc/sysconfig/
 echo "OPTIONS='-r -s'" > /etc/sysconfig/chronyd
-echo -e 'dumponexit\ndumpdir /var/lib/chrony\nrtcfile /var/lib/chrony/rtc' >> /etc/chrony.conf
+echo -e 'dumponexit\ndumpdir /var/lib/chrony\nrtcfile /var/lib/chrony/rtc' > /etc/chrony.conf
 systemctl enable chronyd.service
 systemctl start chronyd.service
 chronyc online
