@@ -28,7 +28,7 @@ mlocate
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-ttf-fira-code
+ttf-firacode-nerd
 ttf-bitstream-vera
 ttf-croscore
 ttf-dejavu

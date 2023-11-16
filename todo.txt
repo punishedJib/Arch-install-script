@@ -1,8 +1,6 @@
 #!/bin/bash
 #MAYBE # Add amd_pstate=active and no watchdog to GRUB_CMDLINE_LINUX_DEFAULT
 
-#Make the boot partition 1gb
-
 #Maybe setup fonts, or just install a program that lets you do it through a gui
 
 # Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
@@ -12,7 +10,7 @@
 # Learn what pacreport can do to track package files and help clean them up
 # Also take a look at aconfmgr if needed
 
-# Rund xdg-ninja in vm to see which enviroment variables I should set
+# Rund xdg-ninja after reinstallling arch
 
 # Run arch-audit and see what security problems could be fixed without compromising functionality and performance
 
