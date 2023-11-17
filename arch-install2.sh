@@ -59,7 +59,7 @@ systemctl --user enable --now wireplumber.service
 
 # Setup bash git prompt
 
-git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/git/bash-git-prompt --depth=1
 
 # Enable syncthing
 
