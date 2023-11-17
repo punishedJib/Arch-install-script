@@ -37,8 +37,8 @@ ttf-junicode
 gnu-free-fonts
 otf-latin-modern
 otf-latinmodern-math
-p7zip
 wqy-zenhei
+p7zip
 bash-completion
 colorgcc
 steam
@@ -52,6 +52,7 @@ xdg-desktop-portal
 xdg-desktop-portal-gtk
 bc
 btop
+htop
 flameshot
 krita
 glow
@@ -62,7 +63,6 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 gst-plugin-pipewire
-htop
 jq
 kdenlive
 keepassxc
@@ -70,6 +70,7 @@ lxappearance-gtk3
 mangohud
 mpc
 mpd
+ncmpcpp
 mpv
 neofetch
 nvme-cli

@@ -8,7 +8,7 @@ xdg-user-dirs-update
 
 git clone https://aur.archlinux.org/paru.git
 cd paru || exit
-makepkg -si
+makepkg -si --noconfirm --needed
 cd /home/jebus/ || exit
 
 # Set up git bare directory and syncronize with git repo
@@ -60,6 +60,10 @@ systemctl --user enable --now wireplumber.service
 # Setup bash git prompt
 
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+# Enable syncthing
+
+systemctl --user enable --now syncthing.service
 
 # Enable cleanup units
 systemctl --user enable --now cleanup.timer

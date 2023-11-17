@@ -4,6 +4,9 @@
 #Maybe setup fonts, or just install a program that lets you do it through a gui
 
 # Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
+    # Write a systemd unit that cleans the pacman cache; First it removes orphaned packages, than it removes everything except the newest 3(?) versions. 'paccache', contained in the 'pacman-contrib', package let's me do this easily, maybe check the pacman wiki for more ideas
+    # Write a systemcd unit that cleans the .cache folder (is this safe?)
+    # Write a systemd unit that cleans the .config directory; Should look into aconfmgr to see how to make this feasible
 
 # Write python script to remove duplicates from playlist (tfg)
 
@@ -12,6 +15,8 @@
 
 # Rund xdg-ninja after reinstallling arch
 
-# Run arch-audit and see what security problems could be fixed without compromising functionality and performance
-
 # What are gnome-icon-theme and gnome-themes-extra needed for?
+
+# Look into disk encryption and secureboot for laptop
+
+# Go through pkglist and see what needs setting up

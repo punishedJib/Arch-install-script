@@ -13,6 +13,18 @@ sed -i '37s/.*/ParallelDownloads = 5/' /etc/pacman.conf
 sed -i '90s/.*/[multilib]/' /etc/pacman.conf
 sed -i "91s/.*/Include = \/etc\/pacman.d\/mirrorlist\/" /etc/pacman.conf
 
+# Write pacman hook to keep uptodate pkglist
+
+echo -e "[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qqe > /etc/pkglist.txt'"
+
 # Add user and add it to some useful groups
 
 groupadd plugdev
@@ -23,7 +35,7 @@ passwd -d jebus
 # Install everything needed
 
 pacman -Sy
-pacman -S --needed - < pkglist.txt
+pacman -S --needed --noconfirm - < pkglist.txt
 
 # Start ufw with a basic config
 
