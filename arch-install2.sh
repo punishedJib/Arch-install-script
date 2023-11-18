@@ -66,9 +66,8 @@ git clone https://github.com/magicmonty/bash-git-prompt.git ~/git/bash-git-promp
 systemctl --user enable --now syncthing.service
 
 # Enable cleanup units
-systemctl --user enable --now cleanup.timer
-systemctl --user enable --now profile-cleaner.service
-systemctl --user enable --now orphan-remover.service
+
+bash .local/bin/cleanup/enablecleanup.sh
 
 #Move some files around to clean the /home/
 
