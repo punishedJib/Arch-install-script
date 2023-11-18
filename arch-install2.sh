@@ -72,8 +72,11 @@ systemctl --user enable --now orphan-remover.service
 
 #Move some files around to clean the /home/
 
-mkdir .config/git
-mv .gitconfig .config/git/
+rm .gitconfig
 
 mkdir .config/pulse
 mv .pulse-cookie .config/pulse
+
+# Make a symbolic link for .local/bin
+
+ln -s .local/bin bin
