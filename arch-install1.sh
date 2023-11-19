@@ -127,6 +127,10 @@ echo 'w /sys/kernel/mm/lru_gen/enabled - - - - 5' >> /etc/tmpfiles.d/consistent-
 echo 'w /proc/sys/vm/zone_reclaim_mode - - - - 0' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
 echo 'w /proc/sys/vm/page_lock_unfairness - - - - 1' >> /etc/tmpfiles.d/consistent-response-time-for-gaming.conf
 
+# Enable paccache.timer to clean all cache except the most recent 3 packages
+
+systemctl enable paccache.timer
+
 # Run third part of the script as jebus to make things easier
 
 chown jebus arch-install2.sh
