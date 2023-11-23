@@ -3,6 +3,7 @@ ttf-win7-fonts
 ttf-ms-win8
 ttf-ms-win10
 ttf-ms-win11
+cozette-otb
 ananicy-cpp-git
 moka-icon-theme-git
 polychromatic

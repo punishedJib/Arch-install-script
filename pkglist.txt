@@ -1,4 +1,6 @@
 pkgfile
+pacman-contrib
+git-delta
 alacritty
 ufw
 nvidia
@@ -46,6 +48,7 @@ wine-staging
 wine-gecko
 wine-mono
 lutris
+libreoffice
 profile-sync-daemon
 profile-cleaner
 xdg-desktop-portal
@@ -77,7 +80,6 @@ nvme-cli
 obs-studio
 openrazer-daemon
 python-html5lib
-python-imagehash
 python-pip
 python-pipx
 python-pyperclip
