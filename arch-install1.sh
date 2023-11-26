@@ -61,7 +61,7 @@ echo 'kernel.kexec_load_disabled = 1' >> /etc/sysctl.d/51-kexec-restrict.conf
 
 echo -e 'Section "InputClass"\n    Identifier "My Mouse"\n    Driver "libinput"\n    MatchIsPointer "yes"\n    Option "AccelProfile" "flat"\n    Option "AccelSpeed" "-0.75"\nEndSection' >> /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
 
-# Load nvidia kernel modules using initframs
+# Load nvidia kernel modules and amd_pstate using initframs
 
 sed -i '7s/.*/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
 
@@ -111,7 +111,7 @@ echo -e 'net.core.default_qdisc = cake\nnet.ipv4.tcp_congestion_control = bbr' >
 
 # Disable watchdog and change grub wallpaper
 
-sed -i '6s/.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nowatchdog tsc=reliable clocksource=tsc"/' /etc/default/grub
+sed -i '6s/.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nowatchdog tsc=reliable clocksource=tsc amd_pstate=active amd_pstate.shared_mem=1"/' /etc/default/grub
 sed -i '46s|.*|GRUB_BACKGROUND="/home/jebus/Pictures/Wallpapers/Pokemon_may_waterfall/1d920581-c76c-40f3-b340-9fa34e013c7c_maywaterfalldesktophd.png"|' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
