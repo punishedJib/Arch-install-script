@@ -61,7 +61,7 @@ echo 'kernel.kexec_load_disabled = 1' >> /etc/sysctl.d/51-kexec-restrict.conf
 
 echo -e 'Section "InputClass"\n    Identifier "My Mouse"\n    Driver "libinput"\n    MatchIsPointer "yes"\n    Option "AccelProfile" "flat"\n    Option "AccelSpeed" "-0.75"\nEndSection' >> /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
 
-# Load nvidia kernel modules and amd_pstate using initframs
+# Load nvidia kernel modules and amd_pstate (this requires amd cppc enabled' using initframs
 
 sed -i '7s/.*/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
 
