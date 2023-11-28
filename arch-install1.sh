@@ -67,7 +67,7 @@ sed -i '7s/.*/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkini
 
 # Set invidia kernel modules settings
 
-echo -e 'options nvidia-drm modeset=1\noptions nvidia NVreg_UsePageAttributeTable=1\noptions nvidia NVreg_EnablePCIeGen3=1\noptions nvidia NVreg_NvAGP=3\noptions nvidia NVreg_EnableAGPFW=1' >> /etc/modprobe.d/nvidia.conf
+echo -e 'options nvidia-drm modeset=1\noptions nvidia NVreg_UsePageAttributeTable=1\noptions nvidia NVreg_EnablePCIeGen3=1' >> /etc/modprobe.d/nvidia.conf
 
 # Pacman hook to update initframs after each nvidia update
 
