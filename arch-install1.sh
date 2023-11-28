@@ -82,6 +82,8 @@ sed -i '85s/.*/require_nofilter = true/' /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 sed -i '42s/.*/listen_addresses = ['\''127.0.0.1:53'\'', '\''[::1]:53'\'']/' /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 echo '' > /etc/resolv.conf
 echo -e 'nameserver ::1\nnameserver 127.0.0.1\noptions edns0' > /etc/resolv.conf
+# Stop NetworkManager from modifying resolv.conf
+echo -e '[main]\ndns=none' >> /etc/NetworkManager/NetworkManager.conf
 systemctl enable dnscrypt-proxy.service
 systemctl start dnscrypt-proxy.service
 
