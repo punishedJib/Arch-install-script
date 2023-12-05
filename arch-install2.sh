@@ -17,7 +17,7 @@ mkdir .dotfiles
 cd .dotfiles || exit
 git init --bare
 echo -e '[remote "master"]
-    url = git@github.com:Jebusthebus/dotfiles.git
+    url = https://github.com/punishedJib/dotfiles
     fetch = +refs/heads/*:refs/remotes/master/*
 [pull]
     rebase = true
