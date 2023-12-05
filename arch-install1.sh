@@ -37,19 +37,21 @@ passwd -d jebus
 pacman -Sy
 pacman -S --needed --noconfirm - < pkglist.txt
 
-# Start ufw with a basic config
-
-systemctl enable ufw.service
-systemctl start ufw.service
-ufw default deny
-ufw allow from 192.168.0.0/24
-ufw allow Deluge
-ufw limit ssh
-ufw enable
-
 # Add wheel group to no passwd sudo using a file, can't find an elegant solution for using visudo and I can't be bothered right now
 
 echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/99_wheel
+
+# Disable iptables and flush them.
+systemctl stop iptables.service
+systemctl disable iptables.service
+chmod +x iptablesflush.sh
+./iptablesflush.sh
+
+# Setup nftables to be able to work with vopono
+sed -i '24s/.*/    type filter hook forward priority filter; policy drop;/' /etc/nftables.conf
+sed -i "25s/.*/    iifname \"enp9s0\" ip daddr 10.200.0.2/16 accept/" /etc/nftables.conf
+sed -i "26i\ \ \ \ oifname \"enp9s0\" ip saddr 10.200.0.2/16 accept/" /etc/nftables.conf
+
 
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
