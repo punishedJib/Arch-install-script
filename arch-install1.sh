@@ -47,11 +47,40 @@ systemctl disable iptables.service
 chmod +x iptablesflush.sh
 ./iptablesflush.sh
 
-# Setup nftables to be able to work with vopono
-sed -i '24s/.*/    type filter hook forward priority filter; policy drop;/' /etc/nftables.conf
-sed -i "25s/.*/    iifname \"enp9s0\" ip daddr 10.200.0.2/16 accept/" /etc/nftables.conf
-sed -i "26i\ \ \ \ oifname \"enp9s0\" ip saddr 10.200.0.2/16 accept/" /etc/nftables.conf
-
+# Setup nftables as by arch's regulation for a meaningful firewall
+nft flush ruleset
+nft add table inet my_table
+nft add chain inet my_table input '{ type filter hook input priority 0 ; policy drop ; }'
+nft add chain inet my_table forward '{ type filter hook forward priority 0 ; policy drop ; }'
+nft add chain inet my_table output '{ type filter hook output priority 0 ; policy accept ; }'
+nft add chain inet my_table tcp_chain
+nft add chain inet my_table udp_chain
+nft add rule inet my_table input ct state related,established accept
+nft add rule inet my_table input iif lo accept
+nft add rule inet my_table input ct state invalid drop
+nft add rule inet my_table input meta l4proto ipv6-icmp accept
+nft add rule inet my_table input meta l4proto icmp accept
+nft add rule inet my_table input ip protocol igmp accept
+nft add rule inet my_table input meta l4proto udp ct state new jump udp_chain
+nft add rule inet table my_input 'meta l4proto tcp tcp flags & (fin|syn|rst|ack) == syn ct state new jump tcp_chain'
+nft add rule inet my_table input meta l4proto udp reject
+nft add rule inet my_table input meta l4proto tcp reject with tcp reset
+nft add rule inet my_table input counter reject with icmpx port-unreachable
+# Open some useful ports
+# SSH
+nft add rule inet my_table tcp_chain tcp dport 22 accept
+# qBittorrent
+nft add rule inet my_table tcp_chain tcp dport 56503 accept
+nft add rule inet my_table udp_chain udp dport 56503 accept
+# Nitroshare
+nft add rule inet my_table tcp_chain tcp dport 40818 accept
+nft add rule inet my_table tcp_chain tcp sport 40816 accept
+nft add rule inet my_table upd_chain udp dport 40818 accept
+nft add rule inet my_table udp_chain udp sport 40816 accept
+# Enable forwarding for vopono namespaces
+nft add rule inet my_table forward iifname "enp9s0" ip daddr 10.200.0.2/16 accept
+nft add rule inet my_table forward oifname "enp9s0" ip saddr 10.200.0.2/16 accept
+nft list ruleset > /etc/nftables.conf
 
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
