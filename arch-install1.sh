@@ -82,6 +82,15 @@ nft add rule inet my_table forward iifname "enp9s0" ip daddr 10.200.0.2/16 accep
 nft add rule inet my_table forward oifname "enp9s0" ip saddr 10.200.0.2/16 accept
 nft list ruleset > /etc/nftables.conf
 
+# Enable firejail
+firecfg
+
+# Give generic machine id
+
+echo "b08dfa6083e7567a1921a715000001fb" > /etc/machine-id
+echo "b08dfa6083e7567a1921a715000001fb" > /var/lib/dbus/machine-id
+
+
 # Add timer to ssh login failed attemps, deny root login and enable key only login
 
 echo 'auth optional pam_faildelay.so delay=4000000' >> /etc/pam.d/system-login
