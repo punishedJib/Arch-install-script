@@ -72,11 +72,8 @@ nft add rule inet my_table tcp_chain tcp dport 22 accept
 # qBittorrent
 nft add rule inet my_table tcp_chain tcp dport 56503 accept
 nft add rule inet my_table udp_chain udp dport 56503 accept
-# Nitroshare
-nft add rule inet my_table tcp_chain tcp dport 40818 accept
-nft add rule inet my_table tcp_chain tcp sport 40816 accept
-nft add rule inet my_table upd_chain udp dport 40818 accept
-nft add rule inet my_table udp_chain udp sport 40816 accept
+# Localsend
+nft add rule inet my_table tcp_chain tcp dport 53317 accept
 # Enable forwarding for vopono namespaces
 nft add rule inet my_table forward iifname "enp9s0" ip daddr 10.200.0.2/16 accept
 nft add rule inet my_table forward oifname "enp9s0" ip saddr 10.200.0.2/16 accept
@@ -84,6 +81,7 @@ nft list ruleset > /etc/nftables.conf
 
 # Enable firejail
 firecfg
+rm /usr/bin/chromium
 
 # Give generic machine id
 
