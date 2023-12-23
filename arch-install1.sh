@@ -74,6 +74,7 @@ nft add rule inet my_table tcp_chain tcp dport 56503 accept
 nft add rule inet my_table udp_chain udp dport 56503 accept
 # Localsend
 nft add rule inet my_table tcp_chain tcp dport 53317 accept
+nft add rule inet my_table udp_chain udp dport 53317 accept
 # Enable forwarding for vopono namespaces
 nft add rule inet my_table forward iifname "enp9s0" ip daddr 10.200.0.2/16 accept
 nft add rule inet my_table forward oifname "enp9s0" ip saddr 10.200.0.2/16 accept
