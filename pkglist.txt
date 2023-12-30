@@ -1,3 +1,9 @@
+# theming
+arc-gtk-theme
+arc-icon-theme
+gtk-engine-murrine
+gnome-themes-standard
+
 openresolv
 wireguard-tools
 nftables
