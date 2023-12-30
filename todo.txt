@@ -1,29 +1,61 @@
-#MAYBE # Add amd_pstate=active and no watchdog to GRUB_CMDLINE_LINUX_DEFAULT
+##### Main script #####----------------------------------------------------------------------------
+#IMPORTANT, pacman.conf is still broken meaning that sed is not working as intended, at this point maybe it would be just easyer to have a pacman.conf in the repo and move it in place
+
+#IMPORTANT Make the script interactive, so it will ask if you want
+#IMPORTANT Split scritps with interactive prompts so as to make it also usable on other machines
+#IMPORTANT Split scripts into smaller elements so as to be able to quickly apply single configurations
+#IMPORTANT Split pkglist.txt into various files based on a category, i.e. games, fonts, multimedia, nvidia, etc...
+
+# Make the first script write a systemd unit that starts at login and runs the next part of the script so as to automate that step too
+
+# Cleanup installation files once over
+
+# Move defaults into the anianicy dir
+
+# Write a script that checks differences in local pkglist.txt with the script pkglist.txt
+
+# Test liquorix and see if it works better than default zen
+
+##### Clean up stuff#####--------------------------------------------------------------------------
+
+# Try and move nvidia CUDA_CACHE_PATH to /etc/enviroment and swap to dmenu to launch it
+
+# Clean up vimrc
+
+# Also take a look at aconfmgr if needed
+
+# Solve the .pulse-cookie issue caused by steam once and for all, currently using /etc/pulse/client.conf to point steam to $XDG_HOME_CONFIG/pulse/cookie but this seems to drastic of a solution
 
 # Expand the list of cleanup services to include more functions, like removing unwanted clutter in the home and config directory
     # Write a systemcd unit that cleans the .cache folder (is this safe?)
     # Write a systemd unit that cleans the .config directory; Should look into aconfmgr to see how to make this feasible
 
-# Write python script to remove duplicates from playlist (tfg)
 
-# Learn what pacreport can do to track package files and help clean them up
-# Also take a look at aconfmgr if needed
-
-# Run xdg-ninja after reinstallling arch
-
-# What are gnome-icon-theme and gnome-themes-extra needed for?
-
-# Clean all superflous files in the /home directory before reinstalling arch
-
-# Look into disk encryption and secureboot for laptop
-
-# Make the first script write a systemd unit that starts at login and runs the next part of the script so as to automate that step too
-
-# Clean up vimrc
+##### Laptop server #####--------------------------------------------------------------------------
 
 # Take out the hdd from my laptop and hook it up to my desktop, salvage what is needed and wipe it clean.
+
 # Use an usb to install debian using ssh
 
 # Setup an mpd satellite server
 
-# Split pkglist.txt into various files based on a category, i.e. games, fonts, multimedia, nvidia, etc...
+# Maybe buy a small screen and fuse it to a vga port to easily access laptops with broken monitors
+
+# Learn how to properly setup firejail and apparmor to secure the server
+
+##### maim #####-----------------------------------------------------------------------------------
+
+# Write some cool scripts
+
+# See how to use dmenu to take user input and parse it as a filename
+
+
+##### Misc #####-----------------------------------------------------------------------------------
+
+# See if I can implement trash-cli into a gui instead of having to use gvfs
+
+# Write python script to remove duplicates from playlist (tfg)
+
+# Look into disk encryption and secureboot for laptop
+
+# Write a script that automatically fetches the newest art from a list of twitter artists using gallery-dl

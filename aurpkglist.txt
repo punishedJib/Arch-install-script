@@ -10,3 +10,4 @@ polychromatic
 stremio-beta
 tenacity-git
 ungoogled-chromium-bin
+localsend-bin
