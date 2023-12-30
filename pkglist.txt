@@ -1,3 +1,4 @@
+openresolv
 wireguard-tools
 nftables
 pkgfile
