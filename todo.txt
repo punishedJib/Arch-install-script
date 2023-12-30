@@ -6,6 +6,8 @@
 #IMPORTANT Split scripts into smaller elements so as to be able to quickly apply single configurations
 #IMPORTANT Split pkglist.txt into various files based on a category, i.e. games, fonts, multimedia, nvidia, etc...
 
+# Test #
+
 # Make the first script write a systemd unit that starts at login and runs the next part of the script so as to automate that step too
 
 # Cleanup installation files once over
